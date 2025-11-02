@@ -1,0 +1,54 @@
+---
+import Button from "@/components/Button.astro";
+import logo from "@/icons/nailogo.svg";
+import Arrow from "@/icons/arrow.svg";
+
+const currentPath = Astro.url.pathname;
+
+const menuItems = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<header
+  class="bg-brand-dark p-4 shadow-md"
+  aria-label="Lismynails Navigation Menu">
+  <div class="container mx-auto flex items-center justify-between">
+    <a
+      class="inline-flex items-center gap-1 rounded-full bg-white px-6 py-4"
+      href="/">
+      <h1 class="text-brand-dark text-3xl font-bold italic">Lismynails</h1>
+      <img
+        src={logo.src}
+        alt="lismynail logo, a polish bottle"
+        class="h-8 scale-125"
+      />
+    </a>
+    <nav
+      class="inline-flex items-center rounded-full bg-white px-4 py-3 shadow-lg">
+      <ul class="flex space-x-4 font-medium text-slate-800 uppercase">
+        {
+          menuItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={`hover:bg-brand-dark focus:bg-brand-dark rounded-full px-3 py-2 transition-all duration-200 hover:text-white ${
+                  currentPath === item.href && "bg-brand-dark text-white"
+                }`}>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <Button size="lg">
+        Book Now
+        <Arrow class="h-10 w-auto" />
+      </Button>
+    </nav>
+  </div>
+</header>
