@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "lismynails2.0",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,8 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@midudev/tailwind-animations": "^0.2.0",
     "@tailwindcss/vite": "^4.1.14",
     "astro": "^5.14.4",
     "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "prettier": "3.6.2",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "0.7.1"
   }
 }
