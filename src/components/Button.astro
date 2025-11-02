@@ -1,0 +1,55 @@
+---
+export interface Props {
+  variant?: "dark" | "light" | "inverted";
+  size?: "sm" | "md" | "lg";
+  class?: string;
+  id?: string;
+  name?: string;
+  href?: string;
+  rel?: string;
+  target?: string;
+}
+
+const {
+  variant = "dark",
+  size = "md",
+  class: className = "",
+  id,
+  name,
+  href,
+  rel,
+  target,
+  ...rest
+} = Astro.props;
+
+const baseStyles =
+  "inline-flex items-center justify-center gap-2 disabled:cursor-not-allowed whitespace-nowrap hover:scale-[1.03] active:scale-[0.97] active:border-b-0 disabled:hover:scale-100 rounded-full text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring cursor-pointer disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-[background-color,transform] duration-150 ease-out";
+
+const variantStyles = {
+  dark: "bg-brand-dark text-white hover:bg-brand-dark/90 active:bg-brand-dark/80 focus-visible:ring-brand-dark",
+  light:
+    "bg-brand-light text-brand-dark hover:bg-slate-100 active:bg-slate-200 focus-visible:ring-slate-200",
+  inverted:
+    "bg-white text-brand-dark hover:bg-slate-100 active:bg-slate-200 focus-visible:ring-slate-200",
+};
+
+const sizeClasses = {
+  sm: "px-3 py-1 text-xs",
+  md: "px-4 py-2 text-sm",
+  lg: "px-6 py-3 text-base",
+};
+
+const classes = [
+  baseStyles,
+  variantStyles[variant],
+  sizeClasses[size],
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+const linkRel = target === "_blank" ? rel || "noopener noreferrer" : rel;
+---
+
+<a href={href} class={classes} target={target} rel={linkRel} {...rest}>
+  <slot />
+</a>
