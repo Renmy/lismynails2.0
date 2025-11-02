@@ -1,1 +1,45 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@midudev/tailwind-animations";
+
+@theme {
+  --color-brand-dark: #ec4899;
+  --color-brand-light: #ffa4dc;
+}
+
+@font-face {
+  font-family: "Playfair Display", serif;
+  src: url("/fonts/PlayfairDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display", serif;
+  src: url("/fonts/PlayfairDisplay-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display Italic", serif;
+}
+
+h3,
+h4,
+h5,
+h6,
+body {
+  font-family: "Poppins", sans-serif;
+}
