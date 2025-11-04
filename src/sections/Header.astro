@@ -60,9 +60,42 @@ const menuItems = [
     </nav>
     <button
       class="text-brand-dark hover:bg-brand-dark cursor-pointer rounded-full px-4 py-2 transition-all duration-200 hover:text-white lg:hidden"
-      aria-label="Toggle mobile menu">
+      aria-label="Toggle mobile menu"
+      id="mobile-menu-button">
       <Menuopen class="h-6 w-6" id="mobile-menu-open" />
-      <Menuclose class="hidden h-8 w-8" id="mobile-menu-close" />
+      <Menuclose class="hidden h-6 w-6" id="mobile-menu-close" />
     </button>
   </div>
+  <div
+    id="mobile-menu"
+    class="let-0 absolute top-16 mt-4 hidden w-full bg-white px-6 py-4 shadow-lg">
+    {
+      (
+        <ul class="flex flex-col items-center justify-center space-y-2 font-medium text-slate-800 uppercase">
+          {menuItems.map((item) => (
+            <li>
+              <a href={item.href} class="px-3 py-2">
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
 </header>
+
+<script>
+  const menuOpenBtn = document.getElementById("mobile-menu-open");
+  const menuCloseBtn = document.getElementById("mobile-menu-close");
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileMenuButton?.addEventListener("click", () => {
+    menuOpenBtn?.classList.toggle("hidden");
+    menuCloseBtn?.classList.toggle("hidden");
+    mobileMenu?.classList.toggle("hidden");
+
+    // Here you can add code to show the mobile menu
+  });
+</script>
