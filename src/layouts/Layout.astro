@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-//SEO Metadata variables
+//SEO Metadata default values
 const defaulttitle = "Lismynails | Nails Salon in Plantation, FL";
 const defaultdescription =
   "Experience premium nail care at Lismynails in Plantation. We specialize in gel manicures, pedicures, acrylics, nail art, Gel X, Builder Gel, Apres and spa treatments for beautiful, long-lasting results.";
@@ -22,7 +22,9 @@ description ??= defaultdescription;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Preload fonts for performance -->
     <link
       rel="preload"
@@ -46,7 +48,7 @@ description ??= defaultdescription;
       crossorigin="anonymous"
     />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Basic SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta
@@ -54,26 +56,33 @@ description ??= defaultdescription;
       content="nail salon, nail spa, gel manicure, pedicure, acrylic nails, nail art, beauty salon, Plantation FL, Broward County, best nail salon in Plantation"
     />
     <meta name="author" content="BizRocketUp" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!--Geo Tags - Local SEO - optimal for near me search -->
     <meta name="geo.region" content="US-FL" />
     <meta name="geo.placename" content="Plantation" />
     <meta name="geo.position" content="26.1097;-80.2524" />
     <meta name="ICBM" content="26.1097, -80.2524" />
 
+    <!-- Open Graph / Facebook Meta Tags   -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="BizRocketUp" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:url" content={url} />
     <meta name="twitter:image" content={image} />
     <meta name="twitter:image:alt" content={title} />
 
-    <!-- ✅ JSON-LD goes here -->
+    <!-- Canonical URL -->
+    <link rel="canonical" href={url} />
+
+    <!-- ✅ JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
