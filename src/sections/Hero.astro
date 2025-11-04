@@ -1,0 +1,97 @@
+---
+import Button from "@/components/Button.astro";
+import Stars from "@/icons/stars.svg";
+import Location from "@/icons/location.svg";
+import Phone from "@/icons/phone-alt.svg";
+import Email from "@/icons/email.svg";
+import Instagram from "@/icons/instagram.svg";
+import Facebook from "@/icons/facebook.svg";
+import Whatsapp from "@/icons/whatsapp.svg";
+---
+
+<section class="flex flex-col">
+  <div class="relative flex flex-col items-center lg:min-h-[92vh] lg:flex-row">
+    <img
+      src="/hero.webp"
+      alt="Lismy holding a nail arts catalog with uniform and seated in the salon"
+      class="top-0 right-0 z-0 hidden h-full w-full object-cover lg:absolute lg:block"
+      loading="eager"
+    />
+    <div class="mx-auto mt-20 max-w-md overflow-clip pt-2 lg:hidden">
+      <img
+        src="/hero-mobile.webp"
+        alt="Lismy holding a nail arts catalog with uniform and seated in the salon"
+        class="z-10 mx-auto block h-auto object-cover"
+        loading="eager"
+      />
+    </div>
+    <div
+      class="z-20 container mx-12 px-4 py-10 text-center lg:w-[45%] lg:text-left">
+      <h1 class="text-brand-dark text-hero-title font-medium">
+        Beautiful Nails,
+      </h1>
+      <h2
+        class="text-hero-subtitle font-medium tracking-tight text-slate-800 italic">
+        Shine With Confidence.
+      </h2>
+      <p class="text-hero-paragraph mb-6 text-slate-700">
+        Professional nail care and stunning designs for every occasion.
+      </p>
+      <Button href="#services" size="lg" class="!text-lg">
+        Our Services
+        <Stars class="inline-block h-6 w-auto" />
+      </Button>
+    </div>
+  </div>
+  <div
+    class="bg-brand-dark z-20 flex h-auto w-full items-center justify-between self-end px-6 py-1 text-white">
+    <div class="flex items-center justify-center sm:gap-2">
+      <a
+        href="https://www.google.com/maps/place/Lismynails+Salon+%26+Spa/@26.1093516,-80.2549895,976m/data=!3m2!1e3!4b1!4m6!3m5!1s0x88d907ca7b3f6947:0x8a7fad0f11a79f78!8m2!3d26.1093468!4d-80.2524146!16s%2Fg%2F11x2vwqbcn?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D"
+        class="inline-flex items-center gap-1"
+        target="_blank"
+        rel="noopener">
+        <Location class="h-5 w-auto" />
+        <p class="hidden sm:block">
+          801 S Univ Dr C-135, Ste 11, Plantation, FL 33324
+        </p>
+      </a>
+      <a href="tel:9544775261" class="inline-flex items-center gap-1">
+        <Phone class="ml-4 h-4 w-auto" />
+        <p class="hidden sm:block">954-477-5261</p>
+      </a>
+    </div>
+    <div class="flex items-center justify-center gap-2">
+      <a href="https://www.instagram.com/lismynails/" target="_blank">
+        <Instagram class="h-5 w-auto cursor-pointer hover:scale-110" />
+      </a>
+      <a href="https://www.facebook.com/lismynails" target="_blank">
+        <Facebook class="h-5 w-auto cursor-pointer hover:scale-110" />
+      </a>
+      <a href="http://wa.me/19544775261" target="_blank">
+        <Whatsapp class="h-5 w-auto cursor-pointer hover:scale-110" />
+      </a>
+    </div>
+  </div>
+
+  <style>
+    .hero {
+      background: url("/hero.webp") no-repeat top right;
+      background-size: cover;
+      background-attachment: scroll;
+    }
+    .text-hero-title {
+      font-size: clamp(2.6rem, 4vw + 1.5rem, 8rem);
+      line-height: 1;
+    }
+    .text-hero-subtitle {
+      font-size: clamp(1.6rem, 3vw + 1rem, 6rem);
+    }
+    .text-hero-paragraph {
+      font-size: clamp(1rem, 1.3vw + 0.3rem, 3rem);
+    }
+    .text-hero-social {
+      font-size: clamp(0.6rem, 0.8vw + 0.2rem, 1rem);
+    }
+  </style>
+</section>

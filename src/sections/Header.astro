@@ -2,6 +2,8 @@
 import Button from "@/components/Button.astro";
 import logo from "@/icons/nailogo.svg";
 import Arrow from "@/icons/arrow.svg";
+import Menuopen from "@/icons/menu-open.svg";
+import Menuclose from "@/icons/menu-close.svg";
 
 const currentPath = Astro.url.pathname;
 
@@ -15,11 +17,11 @@ const menuItems = [
 ---
 
 <header
-  class="bg-brand-dark p-4 shadow-md"
+  class="fixed top-0 right-0 left-0 z-50 bg-white shadow-md lg:bg-transparent lg:px-10 lg:py-6 lg:shadow-none"
   aria-label="Lismynails Navigation Menu">
-  <div class="container mx-auto flex items-center justify-between">
+  <div class="flex items-center justify-between">
     <a
-      class="inline-flex items-center gap-1 rounded-full bg-white px-6 py-4"
+      class="inline-flex items-center gap-1 px-6 py-4 lg:rounded-full lg:bg-white lg:shadow-lg"
       href="/">
       <h1 class="text-brand-dark text-3xl font-bold italic">Lismynails</h1>
       <img
@@ -29,8 +31,9 @@ const menuItems = [
       />
     </a>
     <nav
-      class="inline-flex items-center rounded-full bg-white px-4 py-3 shadow-lg">
-      <ul class="flex space-x-4 font-medium text-slate-800 uppercase">
+      class="hidden items-center rounded-full bg-white px-4 py-3 shadow-lg lg:inline-flex">
+      <ul
+        class="flex items-center space-x-4 font-medium text-slate-800 uppercase">
         {
           menuItems.map((item) => (
             <li>
@@ -44,11 +47,22 @@ const menuItems = [
             </li>
           ))
         }
+        <li>
+          <Button
+            size="lg"
+            href="https://www.fresha.com/es/book-now/lismynails-vuyfv72v/services?lid=1287814&eid=2979568&pId=1222535"
+            target="_blank">
+            Book Now
+            <Arrow class="h-10 w-auto" />
+          </Button>
+        </li>
       </ul>
-      <Button size="lg">
-        Book Now
-        <Arrow class="h-10 w-auto" />
-      </Button>
     </nav>
+    <button
+      class="text-brand-dark hover:bg-brand-dark cursor-pointer rounded-full px-4 py-2 transition-all duration-200 hover:text-white lg:hidden"
+      aria-label="Toggle mobile menu">
+      <Menuopen class="h-6 w-6" id="mobile-menu-open" />
+      <Menuclose class="hidden h-8 w-8" id="mobile-menu-close" />
+    </button>
   </div>
 </header>
