@@ -1,0 +1,38 @@
+---
+import { services } from "@/content/content.json";
+import Button from "@/components/Button.astro";
+---
+
+<section id="services" class="container mx-auto my-12 px-6 md:my-24">
+  <div class="flex flex-col items-center justify-center gap-2 text-center">
+    <h1 class="text-brand-dark text-3xl font-bold md:text-5xl">Our Services</h1>
+    <h2 class="text-2xl font-medium text-slate-700 italic md:text-4xl">
+      Where beauty meets skill for flawless results.
+    </h2>
+    <p class="text-base text-slate-800 lg:text-lg">
+      Our team brings years of experience in professional nail care. We focus on
+      precision, creativity, and lasting quality.<br /> Every detail is designed
+      to make your nails stand out beautifully.
+    </p>
+    <Button size="lg" href="/services"> Explore All Services </Button>
+  </div>
+  <div
+    class="grid grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+    {
+      services &&
+        services.map((service) => (
+          <div class="hover:bg-brand-light/10 mx-auto max-w-sm transform cursor-pointer rounded-xl border border-gray-200 p-8 text-center shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <img
+              src={service.img}
+              alt={service.title}
+              class="shadow-brand-dark/80 mx-auto mb-4 h-48 w-48 rounded-full object-cover shadow-lg"
+            />
+            <h3 class="text-brand-dark mb-2 text-xl font-semibold">
+              {service.title}
+            </h3>
+            <p class="mb-4 text-slate-800">{service.description}</p>
+          </div>
+        ))
+    }
+  </div>
+</section>

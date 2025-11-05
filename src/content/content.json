@@ -1,0 +1,19 @@
+{
+  "services": [
+    {
+      "title": "Gel-X Nails",
+      "description": "Professional manicure services to keep your nails looking perfect.",
+      "img": "/services-1.webp"
+    },
+    {
+      "title": "Pedicure Spa",
+      "description": "Relaxing pedicure treatments for beautiful feet. Enjoy a soothing experience.",
+      "img": "/services-2.webp"
+    },
+    {
+      "title": "Acrylic Nails",
+      "description": "Long-lasting gel nail application in various styles. Get the look you want.",
+      "img": "/services-3.webp"
+    }
+  ]
+}
